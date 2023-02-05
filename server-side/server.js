@@ -20,5 +20,3 @@ app.listen(port, () => {
 })
 
 //git remote add origin https://github.com/Alabere-coder/MEAN-2-project.git
-//git branch - M main
-//git push - u origin main
