@@ -2,9 +2,11 @@ const express = require('express');
 const router = express.Router();
 const { getCalls, setCalls, updateCalls, deleteCalls } = require("../controllers/callController.js")
 
+const { protect } = require('../middleware/authMiddleware')
+
 // saving some lines of code
-router.route('/').get(getCalls).post(setCalls)
-router.route('/:id').put(updateCalls).delete(deleteCalls)
+router.route('/').get(protect, getCalls).post(protect, setCalls)
+router.route('/:id').put(protect, updateCalls).delete(protect, deleteCalls)
 
 // router.get('/', getCalls)
 
