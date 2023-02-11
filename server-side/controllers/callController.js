@@ -34,16 +34,16 @@ const updateCalls = asyncHandler(async (req, res) => {
         throw new Error({ message: 'Call not found' })
     }
 
-    const user = await User.findById(req.user.id)
+    // const user = await User.findById(req.user.id)
 
     // check for user
-    if (!user) {
+    if (!req.user) {
         res.status(400)
         throw new Error('User not found')
     }
 
     // matching the logged in user with the call user
-    if (call.user.toString() !== user.id) {
+    if (call.user.toString() !== req.user.id) {
         res.status(401)
         throw new Error('User not authorized')
     }
@@ -64,16 +64,16 @@ const deleteCalls = asyncHandler(async (req, res) => {
         throw new Error({ message: 'Call not found' })
     }
 
-    const user = await User.findById(req.user.id)
+    // const user = await User.findById(req.user.id)
 
     // check for user
-    if (!user) {
+    if (!req.user) {
         res.status(400)
         throw new Error('User not found')
     }
 
     // matching the logged in user with the call user
-    if (call.user.toString() !== user.id) {
+    if (call.user.toString() !== req.user.id) {
         res.status(401)
         throw new Error('User not authorized')
     }
