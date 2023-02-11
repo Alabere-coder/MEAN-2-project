@@ -1,12 +1,14 @@
 {
   "name": "mean-2-project",
   "version": "1.0.0",
+  "proxy": "http://localhost:8000",
   "description": "Goal setter app",
   "main": "server.js",
   "scripts": {
     "start": "node server-side/server.js",
     "dev": "nodemon server-side/server.js",
-    "client": "npm start --prefix client"
+    "client": "npm start --prefix client",
+    "conc": "concurrently \"npm run dev\" \"npm run client\""
   },
   "author": "Alabere-coder",
   "license": "ISC",
